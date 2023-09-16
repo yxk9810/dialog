@@ -29,9 +29,14 @@ def get_train_data(filename):
     return json.load(open(filename,'r',encoding='utf-8'))
 
 corpus = get_corpus()
-def rerank_by_bm25(query,candidates,with_ids=False):
+def rerank_by_bm25(query,candidates,with_ids=True):
     query = ' '.join(jieba.lcut(query))
-    docs = [corpus[id] for id in candidates] if with_ids else candidates
+    docs = []
+    for id in candidates:
+        if id in corpus:
+            docs.append(corpus[id])
+        else:
+            docs.append('无内容')
     cut_corpus =  [' '.join(jieba.lcut(doc)) for doc in docs ]
     bm25 = BM25Okapi(cut_corpus)
     scores = bm25.get_scores(query)
