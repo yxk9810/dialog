@@ -42,4 +42,4 @@ with open('test_cail_data.jsonl','r',encoding='utf-8') as lines:
     doc_scores = {doc_id:score for score,doc_id in zip(similarity,data['candidates'])}
     data_scores[data['idx']] = {'scores':similarity.tolist(),'candidates':data['candidates']}
 
-json.dump(data_scores,open(args.model_path,'w',encoding='utf-8'),ensure_ascii=False,indent=4)
+json.dump(data_scores,open(args.result_file,'w',encoding='utf-8'),ensure_ascii=False,indent=4)
