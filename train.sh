@@ -8,7 +8,7 @@ torchrun --nproc_per_node 1 \
 -m FlagEmbedding.baai_general_embedding.finetune.run \
 --output_dir ./finetuned_base_bge \
 --model_name_or_path BAAI/bge-base-zh \
---train_data /kaggle/input/cail23/train_bge_data.jsonl \
+--train_data /kaggle/input/cail2023/train_bge_data.jsonl \
 --learning_rate 2e-5 \
 --num_train_epochs 5 \
 --per_device_train_batch_size 2 \
