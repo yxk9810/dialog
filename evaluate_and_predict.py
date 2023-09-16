@@ -28,12 +28,11 @@ with open('/kaggle/input/cail2023/dev_bge_data.jsonl','r',encoding='utf-8') as l
     sorted_ids = [w[0] for w in sorted(doc_score.items(),key=lambda x:x[1],reverse=True)]
     score+=1.0/(sorted_ids.index(0)+1)
 print('evaluate ...'+str(float(score)/cnt))
-
 from tqdm import tqdm
 import json
 res = {}
 data_scores = {}
-with open('test_candidates_stage2.jsonl','r',encoding='utf-8') as lines:
+with open('test_cail_data_stage2.jsonl','r',encoding='utf-8') as lines:
   for line in lines:
     data = json.loads(line.strip())
     query_emb = model.encode(data['query'], normalize_embeddings=True)
