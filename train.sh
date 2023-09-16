@@ -6,7 +6,7 @@ git clone https://github.com/FlagOpen/FlagEmbedding.git
 #train base
 torchrun --nproc_per_node 1 \
 -m FlagEmbedding.baai_general_embedding.finetune.run \
---output_dir ./finetuned_bge \
+--output_dir ./finetuned_base_bge \
 --model_name_or_path BAAI/bge-base-zh \
 --train_data /kaggle/input/cail23/train_bge_data.jsonl \
 --learning_rate 2e-5 \
