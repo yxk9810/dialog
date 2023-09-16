@@ -39,13 +39,13 @@ def rerank_by_bm25(query,candidates,with_ids=False):
     sorted_candidates = sorted(candidate_scores.items(),key=lambda x:x[-1],reverse=True)
     return ([w[0] for w in sorted_candidates],docs)
 
-
+/kaggle/input/cail2023/cail2023_/datasets/test_stage2
 writer = open('test_cail_data_stage2.jsonl','a+',encoding='utf-8')
 test_data_file = data_folder+'/test_candidates_stage2.json'
 test_data  = get_train_data(test_data_file)
-for filename in tqdm(os.listdir(data_folder+'test')):
+for filename in tqdm(os.listdir(data_folder+'test_stage2')):
     if '.txt' not in filename:continue
-    search_text=get_search_content(data_folder+'test/'+filename)
+    search_text=get_search_content(data_folder+'test_stage2/'+filename)
     q_id = filename.split('.txt')[0]
     candidate_docis = test_data[filename.split('.txt')[0]]
     sorted_candidates,doc_contents =  rerank_by_bm25(search_text,candidate_docis,with_ids=True)
