@@ -8,7 +8,7 @@ from rank_bm25 import BM25Okapi
 from tqdm import tqdm
 from utils import cut_sentences
 import jieba
-data_folder = '/kaggle/input/cail2023/cail2023_/cail2023_对话式类案检索数据集/datasets/'
+data_folder = '/kaggle/input/cail2023/cail2023_/datasets/'
 def get_corpus():
     corpus = {}
     for filename in os.listdir(data_folder+'corpus'):
@@ -40,8 +40,8 @@ def rerank_by_bm25(query,candidates,with_ids=False):
     return ([w[0] for w in sorted_candidates],docs)
 
 
-writer = open('test_cail_data.jsonl','a+',encoding='utf-8')
-test_data_file = data_folder+'/test_candidates.json'
+writer = open('test_cail_data_stage2.jsonl','a+',encoding='utf-8')
+test_data_file = data_folder+'/test_candidates_stage2.json'
 test_data  = get_train_data(test_data_file)
 for filename in tqdm(os.listdir(data_folder+'test')):
     if '.txt' not in filename:continue
