@@ -41,7 +41,7 @@ def rerank_by_bm25(query,candidates,with_ids=False):
 
 
 writer = open('test_cail_data.jsonl','a+',encoding='utf-8')
-test_data_file = '/kaggle/input/cail2023/cail2023_/test_candidates.json'
+test_data_file = data_folder+'/test_candidates.json'
 test_data  = get_train_data(test_data_file)
 for filename in tqdm(os.listdir(data_folder+'test')):
     if '.txt' not in filename:continue
