@@ -1,0 +1,5 @@
+datasets
+pandas
+accelerate
+FlagEmbedding
+sentence-transformers
