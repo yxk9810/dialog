@@ -33,8 +33,8 @@ from tqdm import tqdm
 import json
 res = {}
 data_scores = {}
-with open('test_cail_data.jsonl','r',encoding='utf-8') as lines:
-  for line in tqdm(lines,total=50):
+with open('test_candidates_stage2.jsonl','r',encoding='utf-8') as lines:
+  for line in lines:
     data = json.loads(line.strip())
     query_emb = model.encode(data['query'], normalize_embeddings=True)
     doc_emb = model.encode(data['docs'],normalize_embeddings=True)
