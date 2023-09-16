@@ -53,7 +53,6 @@ for filename in tqdm(os.listdir(data_folder+'test')):
     for doc, doc_id in zip(doc_contents, candidate_docis):
         sentences = cut_sentences(doc)
         rerank_sentences, _ = rerank_by_bm25(search_text, sentences)
-        # print(doc[:200])
         new_doc = ''
         for sentence in rerank_sentences:
             if len(new_doc) >= 512:
