@@ -32,7 +32,7 @@ from tqdm import tqdm
 import json
 res = {}
 data_scores = {}
-with open('test_cail_data_stage2.jsonl','r',encoding='utf-8') as lines:
+with open('/kaggle/input/cail2023/test_cail_data_stage2.jsonl','r',encoding='utf-8') as lines:
   for line in lines:
     data = json.loads(line.strip())
     query_emb = model.encode(data['query'], normalize_embeddings=True)
