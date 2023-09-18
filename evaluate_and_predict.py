@@ -38,7 +38,7 @@ with open('/kaggle/input/cail2023/test_cail_data_stage2.jsonl','r',encoding='utf
     query_emb = model.encode(data['query'], normalize_embeddings=True)
     doc_emb = model.encode(data['docs'],normalize_embeddings=True)
     similarity = query_emb@doc_emb.T
-    doc_scores = {doc_id:score for score,doc_id in zip(similarity,data['candidates'])}
+    doc_scores = {doc_id:float(score) for score,doc_id in zip(similarity,data['candidates'])}
     data_scores[data['idx']] = {'scores':similarity.tolist(),'candidates':data['candidates'],'doc_scores':doc_scores}
 
 json.dump(data_scores,open(args.result_file,'w',encoding='utf-8'),ensure_ascii=False,indent=4)
